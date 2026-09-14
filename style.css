@@ -10,6 +10,12 @@
   --accent-hover: #6a9dff;
   --danger: #ff6b6b;
   --success: #55d187;
+  --json-key: #c792ea;
+  --json-string: #89ddff;
+  --json-number: #f78c6c;
+  --json-boolean: #ffcb6b;
+  --json-null: #ff5370;
+  --json-punctuation: #aab2bf;
 }
 
 * { box-sizing: border-box; }
@@ -153,6 +159,67 @@ textarea {
 
 textarea::placeholder { color: #697383; }
 
+.json-output {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  min-height: 65vh;
+  margin: 0;
+  overflow: auto;
+  padding: 16px;
+  background: var(--panel);
+  color: var(--text);
+  font: 14px/1.65 Consolas, "SFMono-Regular", Menlo, Monaco, monospace;
+  tab-size: 2;
+  white-space: pre;
+}
+
+.json-output:empty::before {
+  content: attr(data-placeholder);
+  color: #697383;
+  white-space: pre-wrap;
+}
+
+.json-token { color: var(--text); }
+.json-key { color: var(--json-key); }
+.json-string { color: var(--json-string); }
+.json-number { color: var(--json-number); }
+.json-boolean { color: var(--json-boolean); }
+.json-null { color: var(--json-null); }
+.json-punctuation { color: var(--json-punctuation); }
+
+.json-key-group {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.copy-field-btn {
+  appearance: none;
+  margin-left: 6px;
+  padding: 1px 4px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+  line-height: 1.2;
+  opacity: 0.28;
+  vertical-align: baseline;
+}
+
+.json-key-group:hover .copy-field-btn,
+.copy-field-btn:focus-visible {
+  border-color: var(--border);
+  background: var(--panel-2);
+  color: var(--accent-hover);
+  opacity: 1;
+}
+
+.copy-field-btn:hover {
+  border-color: var(--accent);
+}
+
 .statusbar {
   display: flex;
   justify-content: space-between;
@@ -169,6 +236,6 @@ textarea::placeholder { color: #697383; }
 @media (max-width: 900px) {
   .topbar { align-items: flex-start; flex-direction: column; }
   .workspace { grid-template-columns: 1fr; }
-  textarea { min-height: 42vh; }
+  textarea, .json-output { min-height: 42vh; }
   .statusbar { align-items: flex-start; flex-direction: column; }
 }
