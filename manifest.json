@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "JSON 格式化助手",
+  "version": "1.0.0",
+  "description": "格式化普通 JSON、带转义符 JSON 和多层 JSON 字符串，并支持一键复制。",
+  "action": {
+    "default_title": "打开 JSON 格式化助手"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSON 格式化助手</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <h1>JSON 格式化助手</h1>
+        <p>支持普通 JSON、转义 JSON、JSON.stringify 后的字符串。</p>
+      </div>
+      <div class="toolbar">
+        <label class="indent-label">
+          缩进
+          <select id="indentSelect">
+            <option value="2" selected>2 空格</option>
+            <option value="4">4 空格</option>
+          </select>
+        </label>
+        <button id="clearBtn" class="btn secondary">清空</button>
+        <button id="formatBtn" class="btn primary">格式化</button>
+      </div>
+    </header>
+
+    <section class="workspace">
+      <div class="panel">
+        <div class="panel-title">
+          <span>原始 JSON</span>
+          <button id="pasteBtn" class="text-btn">粘贴</button>
+        </div>
+        <textarea id="input" spellcheck="false" placeholder='例如：\n{"name":"ChatGPT","ok":true}\n\n或：\n{\\"name\\":\\"ChatGPT\\",\\"ok\\":true}'></textarea>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">
+          <span>格式化结果</span>
+          <button id="copyBtn" class="text-btn">复制结果</button>
+        </div>
+        <textarea id="output" spellcheck="false" readonly placeholder="格式化后的 JSON 会显示在这里"></textarea>
+      </div>
+    </section>
+
+    <footer class="statusbar">
+      <span id="status">等待输入</span>
+      <span class="hint">快捷键：Ctrl / ⌘ + Enter 格式化</span>
+    </footer>
+  </main>
+
+  <script src="formatter.js"></script>
+</body>
+</html>
